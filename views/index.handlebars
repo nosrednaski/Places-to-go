@@ -1,0 +1,31 @@
+<h1>Where you want?</h1>
+
+<h2>Where you want go!</h2>
+
+<ul>
+  {{#each places}}
+    {{#unless been_there}}
+      {{> places/place-block been_there=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Where you been!</h2>
+
+<ul>
+  {{#each places}}
+    {{#if been_there}}
+      {{> places/place-block been_there=false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Where do you want to go?</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Place Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+  <button type="submit">Add Place</button>
+</form>
